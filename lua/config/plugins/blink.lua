@@ -5,6 +5,7 @@ return {
     dependencies = 'rafamadriz/friendly-snippets',
 
     version = '*',
+    build = 'cargo +nightly build --release',
 
     opts = {
       keymap = { preset = 'default' },

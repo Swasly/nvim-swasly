@@ -6,6 +6,7 @@
 - lua-language-server
 - jedi-language-server OR basedpyright
 - pipx (to install some of the above)
+- rust (cargo, rustup, for blink.cmp)
 
 # Plugins
 - lazy.nvim
