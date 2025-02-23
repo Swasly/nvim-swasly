@@ -76,15 +76,17 @@ return {
         for i = #search_dirs, 1, -1 do
           print(search_dirs[i])
           if vim.fn.isdirectory(search_dirs[i]) == 0 then
-            print("not a directory")
             table.remove(search_dirs, i)
           end
         end
 
-        table.insert(search_dirs, vim.fn.getcwd())
+        if vim.fn.filereadable(joinpath(vim.fn.getcwd(), "/veloce.config")) == 1 then
+          table.insert(search_dirs, 1, vim.fn.getcwd())
+        end
 
         require("telescope.builtin").find_files {
-          cwd = vim.fn.getcwd(),
+          --cwd = search_dirs[1],
+          cwd = stem,
           find_command = find_command,
           search_dirs = search_dirs
         }
