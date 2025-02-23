@@ -1,5 +1,3 @@
-print("lazy.lua config file loading...")
-
 -- Bootstrap lazy.nvim
 -- Try: ':echo stdpath("data")
 -- this code checks if the data path exists. if it doesn't, it clones lazy :)

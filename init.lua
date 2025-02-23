@@ -1,5 +1,3 @@
-print("nvim-wtonks init.lua loading...")
-
 -- check the nvim runpaths for the lazy.lua file
 -- Try: ':echo nvim_list_runtime_paths()'
 -- this particular file lives at /home/wtonks/.config/nvim-wtonks/lua/config/lazy.lua
