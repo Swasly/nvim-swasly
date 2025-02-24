@@ -52,35 +52,30 @@ return {
       end)
 
       -- fzf for files related to veloce build area:
-      -- - cwd
-      -- - $STEM/src/emu
-      -- - $STEM/import/
-      -- - $STEM/_env/
-      -- DO NOT SEARCH:
+      -- DOES NOT SEARCH:
       -- - veloce.wave directory
       -- - veloce.med directory
-      vim.keymap.set("n", "<space>vb", function()
+      vim.keymap.set("n", "<space>vs", function()
         local find_command = { "rg", "--files", "--color=never", "--no-heading", "--with-filename", "--line-number",
           "--column",
           "--smart-case", "--glob=!*veloce.med*", "--glob=!*veloce.wave*" }
 
         if not vim.env.STEM then
-          print("$STEM is not set")
+          print("ERR: $STEM is not set")
           return nil
         end
 
         local stem = vim.env.STEM
-        local joinpath = vim.fs.joinpath
-        local search_dirs = { joinpath(stem, "/src/emu"), joinpath(stem, "/import/"), joinpath(stem, "_env") }
+        local search_dirs = { "/src/emu", "/import/", "_env" }
 
         for i = #search_dirs, 1, -1 do
-          print(search_dirs[i])
+          search_dirs[i] = vim.fs.joinpath(stem, search_dirs[i])
           if vim.fn.isdirectory(search_dirs[i]) == 0 then
             table.remove(search_dirs, i)
           end
         end
 
-        if vim.fn.filereadable(joinpath(vim.fn.getcwd(), "/veloce.config")) == 1 then
+        if IS_VEL_BUILD_DIR == 1 then
           table.insert(search_dirs, 1, vim.fn.getcwd())
         end
 

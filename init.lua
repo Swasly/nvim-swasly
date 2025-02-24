@@ -3,6 +3,10 @@
 -- this particular file lives at /home/wtonks/.config/nvim-wtonks/lua/config/lazy.lua
 require("config.lazy")
 
+-- enable nerd font (if terminal has it installed)
+-- TODO: nerd font is not working :(
+vim.g.have_nerd_font = true
+
 -- setup vim opts
 -- indent size
 vim.opt.shiftwidth = 4
@@ -57,6 +61,7 @@ vim.keymap.set("n", "<space>term", function()
   vim.fn.chansend(term_job_id, "echo hello\n")
 end)
 
--- enable nerd font (if terminal has it installed)
--- TODO: nerd font is not working :(
-vim.g.have_nerd_font = true
+IS_VEL_BUILD_DIR = 0
+if vim.fn.filereadable("veloce.config") == 1 then
+  IS_VEL_BUILD_DIR = 1
+end

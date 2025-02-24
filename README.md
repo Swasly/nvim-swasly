@@ -7,6 +7,10 @@
 - jedi-language-server OR basedpyright
 - pipx (to install some of the above)
 - rust (cargo, rustup, for blink.cmp)
+    - rust-lang.org/tools/install
+    - use CARGO_HOME & RUSTUP_HOME for custom install location
+    - rustup install nightly
+
 
 # Plugins
 - lazy.nvim
