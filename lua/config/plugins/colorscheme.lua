@@ -11,6 +11,20 @@ return {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
+    opts = {
+      style = "night"
+    },
+
+    config = function()
+      require("tokyonight").setup({
+        on_highlights = function(hl, c)
+          hl.comment = {
+            bg = c.none,
+            fg = c.none,
+          }
+        end
+      })
+      vim.cmd.colorscheme("tokyonight")
+    end
   }
 }
