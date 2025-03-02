@@ -3,9 +3,14 @@
 -- this particular file lives at /home/wtonks/.config/nvim-wtonks/lua/config/lazy.lua
 require("config.lazy")
 
+vim.opt.number = true
+vim.opt.relativenumber = false
+
 -- enable nerd font (if terminal has it installed)
 -- TODO: nerd font is not working :(
 vim.g.have_nerd_font = true
+
+vim.g.termguicolors = 1
 
 -- setup vim opts
 -- indent size
