@@ -41,19 +41,6 @@ return {
         end,
         { desc = "telescope search nvim plugins" })
 
-      -- fzf files in p4 area $STEM/src/emu
-      vim.keymap.set("n", "<space>fe", function()
-          if vim.env.STEM then
-            print(vim.fs.joinpath(vim.env.STEM, "/src/emu"))
-            require('telescope.builtin').find_files {
-              cwd = vim.fs.joinpath(vim.env.STEM, "/src/emu")
-            }
-          else
-            print("$STEM is not defined!")
-          end
-        end,
-        { desc = "telescope search p4 emu setup" })
-
       -- fzf for files related to veloce build area:
       -- DOES NOT SEARCH:
       -- - veloce.wave directory
