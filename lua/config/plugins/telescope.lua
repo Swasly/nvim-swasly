@@ -56,7 +56,7 @@ return {
           end
 
           local stem = vim.env.STEM
-          local search_dirs = { "/src/emu", "/import/", "_env" }
+          local search_dirs = { "/src/emu", "/src/buildtime", "/src/runtime", "/src/lib", "/import/", "_env" }
 
           for i = #search_dirs, 1, -1 do
             search_dirs[i] = vim.fs.joinpath(stem, search_dirs[i])
