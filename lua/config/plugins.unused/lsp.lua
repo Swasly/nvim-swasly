@@ -26,7 +26,8 @@ return {
 
       -- see :help lspconfig-server-configurations for a list of supported LSPs
       -- startup for lua-language-server
-      require("lspconfig").lua_ls.setup({ capablities = capabilities })
+      -- require("lspconfig").lua_ls.setup({ capablities = capabilities })
+      vim.lsp.config.lua_ls.setup({ capablities = capabilities })
 
       -- startup for basedpyright. best so far :)
       -- should also try jedi and/or anakin

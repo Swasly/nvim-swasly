@@ -8,7 +8,7 @@ vim.opt.relativenumber = false
 
 -- enable nerd font (if terminal has it installed)
 -- TODO: nerd font is not working :(
-vim.g.have_nerd_font = true
+vim.g.have_nerd_font = false
 
 vim.g.termguicolors = 1
 
